@@ -13,6 +13,7 @@
 		840300451FB6A90700013359 /* BHBezelNotification_Demo_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840300441FB6A90700013359 /* BHBezelNotification_Demo_AppTests.swift */; };
 		8418575E1FB77891006DFA07 /* BHBezelNotification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8418575F1FB77891006DFA07 /* BHBezelNotification.framework */; };
 		841857651FB7792A006DFA07 /* CustomCursorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841857641FB7792A006DFA07 /* CustomCursorButton.swift */; };
+		84CB42961FB8B3B90047D9E7 /* BHBezelNotification.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8418575F1FB77891006DFA07 /* BHBezelNotification.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +25,19 @@
 			remoteInfo = "BHBezelNotification Demo App";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		84CB42921FB8B3970047D9E7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				84CB42961FB8B3B90047D9E7 /* BHBezelNotification.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		840300301FB6A90600013359 /* BHBezelNotification Demo App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BHBezelNotification Demo App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +51,7 @@
 		840300461FB6A90700013359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8418575F1FB77891006DFA07 /* BHBezelNotification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BHBezelNotification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		841857641FB7792A006DFA07 /* CustomCursorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCursorButton.swift; sourceTree = "<group>"; };
+		84CB42931FB8B3A70047D9E7 /* BHBezelNotification.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BHBezelNotification.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/BHBezelNotification_Demo_App-clpobyzzfbolzjhirabridseiqlb/Build/Products/Debug/BHBezelNotification.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +76,7 @@
 		840300271FB6A90600013359 = {
 			isa = PBXGroup;
 			children = (
+				84CB42931FB8B3A70047D9E7 /* BHBezelNotification.framework */,
 				840300321FB6A90600013359 /* BHBezelNotification Demo App */,
 				840300431FB6A90700013359 /* BHBezelNotification Demo AppTests */,
 				840300311FB6A90600013359 /* Products */,
@@ -117,6 +133,7 @@
 				8403002C1FB6A90600013359 /* Sources */,
 				8403002D1FB6A90600013359 /* Frameworks */,
 				8403002E1FB6A90600013359 /* Resources */,
+				84CB42921FB8B3970047D9E7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
