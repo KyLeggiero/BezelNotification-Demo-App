@@ -99,11 +99,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             weakSelf.delegates.removeValue(forKey: delegateId)
             let anyDelegatesRemaining = !weakSelf.delegates.isEmpty
             weakSelf.hideAllBezelsButton.isEnabled = anyDelegatesRemaining
-            weakSelf.hideAllBezelsButton.isTransparent = !anyDelegatesRemaining
+            weakSelf.hideAllBezelsButton.isHidden = !anyDelegatesRemaining
         }
         
         self.hideAllBezelsButton.isEnabled = true
-        self.hideAllBezelsButton.isTransparent = false
+        self.hideAllBezelsButton.isHidden = false
     }
     
     
