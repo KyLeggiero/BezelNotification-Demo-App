@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22138.1" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22138.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -489,7 +488,8 @@
                                             </menu>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="Ndw-q3-faq"/>
-                                        <menuItem title="Show Colors" keyEquivalent="C" id="bgn-CT-cEk">
+                                        <menuItem title="Show Colors" keyEquivalent="c" id="bgn-CT-cEk">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="orderFrontColorPanel:" target="-1" id="mSX-Xz-DV3"/>
                                             </connections>
@@ -637,7 +637,7 @@
                             <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
-                                    <action selector="toggleSourceList:" target="-1" id="iwa-gc-5KM"/>
+                                    <action selector="toggleSidebar:" target="-1" id="iwa-gc-5KM"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
@@ -687,19 +687,20 @@
                     </menu>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="139" y="135"/>
         </menu>
-        <window title="BH Bezel Notification Demo" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="BezelNotification Demo" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="388" height="301"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
-            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+            <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1255"/>
+            <view key="contentView" wantsLayer="YES" misplaced="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="388" height="301"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AVQ-v3-L1x">
-                        <rect key="frame" x="264" y="13" width="110" height="32"/>
-                        <buttonCell key="cell" type="push" title="Show Bezel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ACN-03-SuD">
+                        <rect key="frame" x="336" y="13" width="68" height="32"/>
+                        <buttonCell key="cell" type="push" title="Show" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ACN-03-SuD">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
@@ -711,8 +712,8 @@ DQ
                         </connections>
                     </button>
                     <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XQP-Rp-awO">
-                        <rect key="frame" x="133" y="13" width="131" height="32"/>
-                        <buttonCell key="cell" type="push" title="Hide All Bezels" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8UZ-VY-mz2">
+                        <rect key="frame" x="257" y="13" width="81" height="32"/>
+                        <buttonCell key="cell" type="push" title="Hide All" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8UZ-VY-mz2">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
@@ -724,21 +725,21 @@ Gw
                         </connections>
                     </button>
                     <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="dark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="8cg-y2-SLt">
-                        <rect key="frame" x="99" y="61" width="190" height="220"/>
+                        <rect key="frame" x="99" y="62" width="219" height="219"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cmc-aE-kvv">
-                                <rect key="frame" x="17" y="47" width="156" height="156"/>
+                            <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cmc-aE-kvv">
+                                <rect key="frame" x="32" y="46" width="156" height="156"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="OEk-M8-dMz"/>
                                     <constraint firstAttribute="height" constant="150" id="VpV-Qr-LSi"/>
                                 </constraints>
                                 <imageCell key="cell" selectable="YES" editable="YES" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Y3s-6C-Scz"/>
                             </imageView>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-P2-8Sh">
-                                <rect key="frame" x="20" y="20" width="150" height="22"/>
+                            <textField wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-P2-8Sh">
+                                <rect key="frame" x="35" y="20" width="150" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Message Text" drawsBackground="YES" id="qeI-5d-pPo">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -746,15 +747,17 @@ Gw
                         <constraints>
                             <constraint firstItem="wKc-P2-8Sh" firstAttribute="trailing" secondItem="Cmc-aE-kvv" secondAttribute="trailing" id="ArC-VZ-q6i"/>
                             <constraint firstAttribute="bottom" secondItem="wKc-P2-8Sh" secondAttribute="bottom" constant="20" symbolic="YES" id="FEb-Mz-fmv"/>
+                            <constraint firstItem="Cmc-aE-kvv" firstAttribute="centerX" secondItem="8cg-y2-SLt" secondAttribute="centerX" id="HUf-Ov-Qk7"/>
                             <constraint firstItem="Cmc-aE-kvv" firstAttribute="top" secondItem="8cg-y2-SLt" secondAttribute="top" constant="20" symbolic="YES" id="Lrl-3t-etk"/>
-                            <constraint firstItem="Cmc-aE-kvv" firstAttribute="leading" secondItem="8cg-y2-SLt" secondAttribute="leading" constant="20" symbolic="YES" id="R9M-nQ-yhz"/>
+                            <constraint firstItem="Cmc-aE-kvv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8cg-y2-SLt" secondAttribute="leading" constant="20" symbolic="YES" id="R9M-nQ-yhz"/>
                             <constraint firstItem="wKc-P2-8Sh" firstAttribute="leading" secondItem="Cmc-aE-kvv" secondAttribute="leading" id="UYy-sy-Uyn"/>
-                            <constraint firstAttribute="trailing" secondItem="Cmc-aE-kvv" secondAttribute="trailing" constant="20" symbolic="YES" id="bCg-1y-jKn"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Cmc-aE-kvv" secondAttribute="trailing" constant="20" symbolic="YES" id="bCg-1y-jKn"/>
                             <constraint firstItem="wKc-P2-8Sh" firstAttribute="top" secondItem="Cmc-aE-kvv" secondAttribute="bottom" constant="8" symbolic="YES" id="e0Q-kC-DHC"/>
+                            <constraint firstAttribute="width" secondItem="8cg-y2-SLt" secondAttribute="height" multiplier="1:1" id="vaq-I1-qt2"/>
                         </constraints>
                     </visualEffectView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DAm-hM-RQu">
-                        <rect key="frame" x="295" y="267" width="48" height="14"/>
+                        <rect key="frame" x="324" y="267" width="48" height="14"/>
                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Timeout" id="Ogf-4F-Cy8">
                             <font key="font" metaFont="systemMedium" size="11"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -762,11 +765,9 @@ Gw
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="66U-Ve-Whh" customClass="CustomCursorButton" customModule="BHBezelNotification_Demo_App" customModuleProvider="target">
-                        <rect key="frame" x="20" y="20" width="90" height="24"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="left" controlSize="mini" inset="2" id="fNb-LT-9Ga">
+                        <rect key="frame" x="20" y="20" width="55" height="11"/>
+                        <buttonCell key="cell" type="square" title="Made by Ky" bezelStyle="shadowlessSquare" imagePosition="left" controlSize="mini" inset="2" id="fNb-LT-9Ga">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <string key="title">©2017
-Blue Husky Studios</string>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
                         <connections>
@@ -774,7 +775,7 @@ Blue Husky Studios</string>
                         </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7fy-gs-tom">
-                        <rect key="frame" x="295" y="242" width="76" height="26"/>
+                        <rect key="frame" x="323" y="242" width="78" height="25"/>
                         <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="kmI-ve-0wF" id="uYN-J3-r2O">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
@@ -788,7 +789,7 @@ Blue Husky Studios</string>
                         </popUpButtonCell>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z0c-cV-5No">
-                        <rect key="frame" x="295" y="223" width="25" height="14"/>
+                        <rect key="frame" x="324" y="224" width="25" height="14"/>
                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tint" id="vcj-qj-saa">
                             <font key="font" metaFont="systemMedium" size="11"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -796,7 +797,7 @@ Blue Husky Studios</string>
                         </textFieldCell>
                     </textField>
                     <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="CmK-qP-NhX">
-                        <rect key="frame" x="297" y="196" width="71" height="23"/>
+                        <rect key="frame" x="323" y="195" width="77" height="27"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="oj0-TD-8LX"/>
                         </constraints>
@@ -827,6 +828,7 @@ Blue Husky Studios</string>
                     <constraint firstItem="7fy-gs-tom" firstAttribute="leading" secondItem="8cg-y2-SLt" secondAttribute="trailing" constant="8" symbolic="YES" id="qYZ-aY-yvr"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="z0c-cV-5No" secondAttribute="trailing" constant="20" symbolic="YES" id="utT-vd-Rfu"/>
                     <constraint firstItem="AVQ-v3-L1x" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8cg-y2-SLt" secondAttribute="bottom" constant="20" symbolic="YES" id="uzC-wS-dQj"/>
+                    <constraint firstItem="XQP-Rp-awO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="66U-Ve-Whh" secondAttribute="trailing" constant="8" symbolic="YES" id="xNA-ij-vYl"/>
                     <constraint firstItem="CmK-qP-NhX" firstAttribute="top" secondItem="z0c-cV-5No" secondAttribute="bottom" constant="4" id="zFN-FS-tfB"/>
                 </constraints>
             </view>

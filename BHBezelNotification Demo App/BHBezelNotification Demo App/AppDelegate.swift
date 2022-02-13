@@ -7,12 +7,15 @@
 //
 
 import Cocoa
-import BHBezelNotification
+import Combine
+
+import BezelNotification
+import FunctionTools
 
 
 
-let copyrightUrl = URL(string: "https://Soft.BHStudios.org")!
-let copyrightText = "©2017\nBlue Husky Studios"
+let linkUrl = URL(string: "https://KyLeggiero.me")!
+let linkText = "Made by Ky"
 
 
 
@@ -42,27 +45,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         timeToLivePopUpButton.addItems(withTitles:
             ["Short", "Long", "Forever"])
         
-        messageTextField.font = BezelParameters.defaultMessageLabelFont
+        messageTextField.font = BezelNotification.Parameters.defaultMessageLabelFont
         
         copyrightButton.attributedTitle = NSAttributedString(
-            string: copyrightText,
+            string: linkText,
             attributes: [
                 .foregroundColor : NSColor.tertiaryLabelColor,
-                .font : NSFont.systemFont(forControlSize: .mini)
+                .font : NSFont.systemFont(ofSize: NSFont.systemFontSize(for: .mini))
             ])
         
-        visualEffectBackgroundFrameObservation =
-            visualEffectBackground.observe(\.frame, options: .new) { (visualEffectBackground, change) in
-                print("visualEffectBackground.frame:", change)
-                // FIXME: For some reason, it's drawing non-retina... this is my workaround for now.
-                let cornerRadius = BezelParameters.defaultCornerRadius / visualEffectBackground.layer!.contentsScale
-                visualEffectBackground.maskImage = .roundedRectMask(size: visualEffectBackground.frame.size,
-                                                                    cornerRadius: cornerRadius)
-        }
+        visualEffectBackground.wantsLayer = true
+        visualEffectBackground.blendingMode = .behindWindow
+        visualEffectBackground.material = .hudWindow
+        visualEffectBackground.state = .active
+        
+        let cornerRadius = BezelNotification.Parameters.defaultCornerRadius
+        visualEffectBackground.maskImage = .roundedRectMask(size: visualEffectBackground.frame.size,
+                                                            cornerRadius: cornerRadius)
         
         copyrightButton.cursor = .pointingHand
         
-        tintColorWell.color = BezelParameters.defaultMessageLabelColor
+        tintColorWell.color = BezelNotification.Parameters.defaultBackgroundTint
+        NSColorPanel.shared.showsAlpha = true
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -70,50 +74,43 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     
-    private var delegates = [UUID : BezelDelegate]()
+    private var publishers = Set<AnyCancellable>() {
+        didSet {
+            print("publishers.count == \(publishers.count)")
+            let anyDelegatesRemaining = !self.publishers.isEmpty
+            self.hideAllBezelsButton.isEnabled = anyDelegatesRemaining
+            self.hideAllBezelsButton.isHidden = !anyDelegatesRemaining
+        }
+    }
 
 
     @IBAction func didPressShowBezelButton(_ sender: NSButton) {
-        let timeToLive: BezelTimeToLive
+        let timeToLive: BezelNotification.TimeToLive
         
         if let selectedTTLName = timeToLivePopUpButton.selectedItem?.title {
-            timeToLive = BezelTimeToLive(named: selectedTTLName) ?? .short
+            timeToLive = .init(named: selectedTTLName) ?? .short
         }
         else {
             timeToLive = .short
         }
         
-        let delegateId = UUID()
-        
-        delegates[delegateId] = BHNotificationBezel.show(
+        BezelNotification.show(
             messageText: messageTextField.stringValue,
             icon: iconImageWell.image,
             timeToLive: timeToLive,
-            tint: tintColorWell.color
-            )
-        { [weak weakSelf = self] in
-            guard let weakSelf = weakSelf else {
-                assertionFailure()
-                return
-            }
-            weakSelf.delegates.removeValue(forKey: delegateId)
-            let anyDelegatesRemaining = !weakSelf.delegates.isEmpty
-            weakSelf.hideAllBezelsButton.isEnabled = anyDelegatesRemaining
-            weakSelf.hideAllBezelsButton.isHidden = !anyDelegatesRemaining
-        }
-        
-        self.hideAllBezelsButton.isEnabled = true
-        self.hideAllBezelsButton.isHidden = false
+            tint: tintColorWell.color)
+            .sink(receiveValue: null)
+            .store(in: &publishers)
     }
     
     
     @IBAction func didPressHideAllBezelsButton(_ sender: NSButton) {
-        delegates.forEach { $0.value.donePresentingBezel() }
+        publishers = []
     }
     
     
     @IBAction func didPressCopyright(_ sender: NSButton) {
-        NSWorkspace.shared.open(copyrightUrl)
+        NSWorkspace.shared.open(linkUrl)
     }
 }
 
@@ -125,13 +122,13 @@ extension AppDelegate : NSWindowDelegate {
 
 
 
-private extension BezelTimeToLive {
+private extension BezelNotification.TimeToLive {
     
-    static let presets: [BezelTimeToLive] = [.short, .long, .forever]
+    static let presets: [Self] = [.short, .long, .forever]
     
     
     init?(named name: String) {
-        if let found = BezelTimeToLive.presets.first(where: { $0.name == name }) {
+        if let found = Self.presets.first(where: { $0.name == name }) {
             self = found
         }
         else {

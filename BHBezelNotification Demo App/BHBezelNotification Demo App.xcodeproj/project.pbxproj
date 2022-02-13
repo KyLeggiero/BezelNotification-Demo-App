@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,9 +11,9 @@
 		840300361FB6A90600013359 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840300351FB6A90600013359 /* Assets.xcassets */; };
 		840300391FB6A90600013359 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840300371FB6A90600013359 /* MainMenu.xib */; };
 		840300451FB6A90700013359 /* BHBezelNotification_Demo_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840300441FB6A90700013359 /* BHBezelNotification_Demo_AppTests.swift */; };
-		8418575E1FB77891006DFA07 /* BHBezelNotification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8418575F1FB77891006DFA07 /* BHBezelNotification.framework */; };
 		841857651FB7792A006DFA07 /* CustomCursorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841857641FB7792A006DFA07 /* CustomCursorButton.swift */; };
-		84CB42961FB8B3B90047D9E7 /* BHBezelNotification.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8418575F1FB77891006DFA07 /* BHBezelNotification.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B9CA659127A65260001B1943 /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = B9CA659027A65260001B1943 /* BezelNotification */; };
+		B9CA659327A66158001B1943 /* NSImage Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CA659227A66158001B1943 /* NSImage Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,19 +25,6 @@
 			remoteInfo = "BHBezelNotification Demo App";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		84CB42921FB8B3970047D9E7 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				84CB42961FB8B3B90047D9E7 /* BHBezelNotification.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		840300301FB6A90600013359 /* BHBezelNotification Demo App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BHBezelNotification Demo App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,7 +38,7 @@
 		840300461FB6A90700013359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8418575F1FB77891006DFA07 /* BHBezelNotification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BHBezelNotification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		841857641FB7792A006DFA07 /* CustomCursorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCursorButton.swift; sourceTree = "<group>"; };
-		84CB42931FB8B3A70047D9E7 /* BHBezelNotification.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BHBezelNotification.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/BHBezelNotification_Demo_App-clpobyzzfbolzjhirabridseiqlb/Build/Products/Debug/BHBezelNotification.framework"; sourceTree = "<group>"; };
+		B9CA659227A66158001B1943 /* NSImage Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSImage Extensions.swift"; path = "../../Sources/BezelNotification/Extensions/NSImage Extensions.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8418575E1FB77891006DFA07 /* BHBezelNotification.framework in Frameworks */,
+				B9CA659127A65260001B1943 /* BezelNotification in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +63,6 @@
 		840300271FB6A90600013359 = {
 			isa = PBXGroup;
 			children = (
-				84CB42931FB8B3A70047D9E7 /* BHBezelNotification.framework */,
 				840300321FB6A90600013359 /* BHBezelNotification Demo App */,
 				840300431FB6A90700013359 /* BHBezelNotification Demo AppTests */,
 				840300311FB6A90600013359 /* Products */,
@@ -98,6 +84,7 @@
 			children = (
 				840300331FB6A90600013359 /* AppDelegate.swift */,
 				841857641FB7792A006DFA07 /* CustomCursorButton.swift */,
+				B9CA659227A66158001B1943 /* NSImage Extensions.swift */,
 				840300351FB6A90600013359 /* Assets.xcassets */,
 				840300371FB6A90600013359 /* MainMenu.xib */,
 				8403003A1FB6A90600013359 /* Info.plist */,
@@ -133,13 +120,15 @@
 				8403002C1FB6A90600013359 /* Sources */,
 				8403002D1FB6A90600013359 /* Frameworks */,
 				8403002E1FB6A90600013359 /* Resources */,
-				84CB42921FB8B3970047D9E7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "BHBezelNotification Demo App";
+			packageProductDependencies = (
+				B9CA659027A65260001B1943 /* BezelNotification */,
+			);
 			productName = "BHBezelNotification Demo App";
 			productReference = 840300301FB6A90600013359 /* BHBezelNotification Demo App.app */;
 			productType = "com.apple.product-type.application";
@@ -169,15 +158,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Blue Husky Studios";
 				TargetAttributes = {
 					8403002F1FB6A90600013359 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1320;
 						ProvisioningStyle = Automatic;
 					};
 					8403003F1FB6A90700013359 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1320;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8403002F1FB6A90600013359;
 					};
@@ -226,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9CA659327A66158001B1943 /* NSImage Extensions.swift in Sources */,
 				841857651FB7792A006DFA07 /* CustomCursorButton.swift in Sources */,
 				840300341FB6A90600013359 /* AppDelegate.swift in Sources */,
 			);
@@ -275,6 +267,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -282,8 +275,10 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -309,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -332,6 +327,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -339,8 +335,10 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -360,10 +358,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -372,13 +371,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "BHBezelNotification Demo App/BHBezelNotification_Demo_App.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
 				INFOPLIST_FILE = "BHBezelNotification Demo App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.bh.BHBezelNotification-Demo-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -387,13 +392,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "BHBezelNotification Demo App/BHBezelNotification_Demo_App.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
 				INFOPLIST_FILE = "BHBezelNotification Demo App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.bh.BHBezelNotification-Demo-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -405,10 +416,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "BHBezelNotification Demo AppTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.bh.BHBezelNotification-Demo-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BHBezelNotification Demo App.app/Contents/MacOS/BHBezelNotification Demo App";
 			};
 			name = Debug;
@@ -421,10 +436,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "BHBezelNotification Demo AppTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.bh.BHBezelNotification-Demo-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BHBezelNotification Demo App.app/Contents/MacOS/BHBezelNotification Demo App";
 			};
 			name = Release;
@@ -460,6 +479,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B9CA659027A65260001B1943 /* BezelNotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BezelNotification;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 840300281FB6A90600013359 /* Project object */;
 }
