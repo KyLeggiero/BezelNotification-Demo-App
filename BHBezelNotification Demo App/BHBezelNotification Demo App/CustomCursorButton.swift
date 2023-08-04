@@ -2,11 +2,11 @@
 //  CustomCursorButton.swift
 //  BH Bezel Test App
 //
-//  Created by Ben Leggiero on 2017-11-10.
-//  Copyright © 2017 Ben Leggiero. All rights reserved.
+//  Created by Ky Leggiero on 2017-11-10.
+//  Copyright © 2017 Ky Leggiero. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 
 
