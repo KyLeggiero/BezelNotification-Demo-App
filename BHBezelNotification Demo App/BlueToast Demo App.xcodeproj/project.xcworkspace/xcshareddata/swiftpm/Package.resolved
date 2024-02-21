@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CrossKitTypes",
+        "repositoryURL": "https://github.com/RougeWare/Swift-Cross-Kit-Types.git",
+        "state": {
+          "branch": null,
+          "revision": "d64faa8d5e988352dff45e03a13da4f90c3a70e5",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "FunctionTools",
+        "repositoryURL": "https://github.com/RougeWare/Swift-Function-Tools.git",
+        "state": {
+          "branch": null,
+          "revision": "a854f4ed89b7e404019b5a09d24e067acc15432d",
+          "version": "1.2.4"
+        }
+      },
+      {
+        "package": "LazyContainers",
+        "repositoryURL": "https://github.com/RougeWare/Swift-Lazy-Containers.git",
+        "state": {
+          "branch": null,
+          "revision": "360a35c98992fc53739e884fb0c48e988710fa92",
+          "version": "4.1.0"
+        }
+      },
+      {
+        "package": "SimpleLogging",
+        "repositoryURL": "https://github.com/RougeWare/Swift-Simple-Logging",
+        "state": {
+          "branch": null,
+          "revision": "efdee028f383b0f3c39646a76e16bdd30693f53b",
+          "version": "0.5.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
