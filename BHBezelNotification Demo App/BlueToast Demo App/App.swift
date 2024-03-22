@@ -19,7 +19,7 @@ struct App: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.debugOverlay, true)
+//                .environment(\.debugOverlay, true)
         }
     }
 }

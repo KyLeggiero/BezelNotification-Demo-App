@@ -69,9 +69,8 @@ struct ContentView: View {
             }
         }
         .padding()
-        .toast(isPresented: $showToast, text: messageText, icon: icon)
-//        .toastStyle(selectedToastStyle.toastStyle)
-        .environment(\.toastStyle, selectedToastStyle.toastStyle)
+        .toast(isPresented: $showToast, text: messageText, duration: .importantText, icon: icon)
+        .toastStyle(selectedToastStyle)
     }
     
     
@@ -121,12 +120,17 @@ private extension SelectedToastStyle {
         case .snackbar:    "Snackbar"
         }
     }
-    
-    
-    var toastStyle: any ToastStyle {
-        switch self {
-        case .systemBezel: .systemBezel
-        case .snackbar:    .snackbar
+}
+
+
+
+private extension View {
+    // believe it or not, SwiftUI fails to compile without this. "`any View` cannot conform to `View`" 🙄
+    @ViewBuilder
+    func toastStyle(_ selected: SelectedToastStyle) -> some View {
+        switch selected {
+        case .systemBezel: toastStyle(SystemBezelToastStyle.systemBezel)
+        case .snackbar: toastStyle(SnackbarToastStyle.snackbar)
         }
     }
 }
